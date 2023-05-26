@@ -42,8 +42,8 @@ export const Sidebar = forwardRef<HTMLElement, Props>(({ showNav }, ref) => {
 
 	return (
 		<aside ref={ref} className={'fixed w-56 h-full bg-dark shadow-sm'}>
-			<div className="flex justify-center mb-14">
-				<Image src={'/bus.gif'} alt={'Bus'} width={50} height={50} />
+			<div className="flex justify-center mb-14 mt-2">
+				<Image src={'/autobus.png'} alt={'Bus'} width={75} height={75} />
 			</div>
 
 			<ul className={'flex flex-col gap-2'}>
