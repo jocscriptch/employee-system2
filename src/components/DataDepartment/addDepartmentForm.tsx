@@ -1,8 +1,7 @@
 import {useReducer } from 'react'
 import React from 'react'
 import {BiPlus} from 'react-icons/bi'
-import Success from './Success';
-import Bug from './Bug';
+import { Toaster, toast } from 'sonner';
 
 interface State {
   [key: string]: string;
@@ -62,7 +61,7 @@ export default function AddDepartmentForm() {
         </div>
       </div>
 
-      <button className="flex justify-center text-md w-2/6 bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500">
+      <button className="flex justify-center text-md w-2/6 bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500" onClick={() => toast.error('Error Missing data in the form, please fill in the form.')}>
         Agregar <span className="px-1"><BiPlus size={24}></BiPlus></span>
       </button>
     </form>

@@ -1,8 +1,6 @@
 import {useReducer } from 'react'
 import React from 'react'
 import {BiBrush, BiPlus} from 'react-icons/bi'
-import Success from './Success';
-import Bug from './Bug';
 
 interface State {
   [key: string]: string;
