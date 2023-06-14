@@ -1,7 +1,7 @@
 import { ChevronDoubleRightIcon,ChevronRightIcon, HomeIcon} from "@heroicons/react/24/solid";
 import {BiAddToQueue} from "react-icons/bi";
-import TableDepartments from "@/components/DataDepartment/TableDepartments";
-import FormDepartment from "@/components/DataDepartment/Form";
+import TableEmployees from "@/components/DataEmployee/TableEmployees";
+import FormEmployee from "@/components/DataEmployee/Form";
 import {useState} from 'react';
 
 export default function Home(){
@@ -15,7 +15,7 @@ export default function Home(){
   return (
     <>
       <section className="mb-8">
-        <p className={"text-gray-700 text-3xl font-bold"}>Departamentos</p>
+        <p className={"text-gray-700 text-3xl font-bold"}>Empleados</p>
         <ul className="flex items-center gap-2 text-gray-500 text-sm">
           <li>
             <HomeIcon className={"h-4 w-4"} />
@@ -23,7 +23,7 @@ export default function Home(){
           <li>
             <ChevronRightIcon className={"h-3 w-3"} />
           </li>
-          <li className={"font-medium"}>Departaments</li>
+          <li className={"font-medium"}>Employees</li>
         </ul>
       </section>
 
@@ -36,13 +36,13 @@ export default function Home(){
       </div>
 
         {/*Form*/}
-         {visible ?  <FormDepartment></FormDepartment>:<></>}
+         {visible ?  <FormEmployee></FormEmployee>:<></>}
        
        
   
         {/*table*/}
         <div className="container mx-auto">
-           <TableDepartments></TableDepartments>
+           <TableEmployees></TableEmployees>
         </div>
     </>
   );

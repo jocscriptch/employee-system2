@@ -19,7 +19,7 @@ const MENU_ITEMS = [
   {
     name: "Empleados",
     icon: FaUsers,
-    path: "/",
+    path: "/empleado",
   },
   {
     name: "Departamentos",

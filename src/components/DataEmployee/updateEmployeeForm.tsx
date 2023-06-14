@@ -1,6 +1,6 @@
 import {useReducer } from 'react'
 import React from 'react'
-import {BiPlus} from 'react-icons/bi'
+import {BiBrush, BiPlus} from 'react-icons/bi'
 import Success from './Success';
 import Bug from './Bug';
 
@@ -15,7 +15,7 @@ const formReducer = (state: State, event: React.ChangeEvent<HTMLInputElement>): 
   };
 };
 
-export default function AddDepartmentForm() {
+export default function UpdateDepartmentForm() {
 
   const [formData, setFormData] = useReducer(formReducer,{})
 
@@ -30,15 +30,15 @@ export default function AddDepartmentForm() {
   return (
     <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
-        <input type="text" onChange={setFormData} name="Departamento" className="border w-full px-5 py-2 focus:outline-none rounded-md" placeholder="Departamento" />
+        <input type="text" onChange={setFormData} name="Departamento" className="border w-full px-5 focus:outline-none rounded-md" placeholder="Departamento" />
       </div>
 
       <div className="input-type">
-        <input type="text" onChange={setFormData} name="Jefe" className="border w-full px-5 py-2 focus:outline-none rounded-md" placeholder="Jefe Departamento" />
+        <input type="text" onChange={setFormData} name="Jefe" className="border w-full px-5 focus:outline-none rounded-md" placeholder="Jefe Departamento" />
       </div>
 
       <div className="input-type">
-        <input type="text" onChange={setFormData} name="Empleados" className="border w-full px-5 py-2 focus:outline-none rounded-md" placeholder="Cantidad Empleados" />
+        <input type="text" onChange={setFormData} name="Empleados" className="border w-full px-5 focus:outline-none rounded-md" placeholder="Cantidad Empleados" />
       </div>
 
       {/*
@@ -62,8 +62,8 @@ export default function AddDepartmentForm() {
         </div>
       </div>
 
-      <button className="flex justify-center text-md w-2/6 bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500">
-        Agregar <span className="px-1"><BiPlus size={24}></BiPlus></span>
+      <button className="flex justify-center text-md w-2/6 bg-yellow-400 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500">
+        Actualizar <span className="px-1"><BiBrush size={24}></BiBrush></span>
       </button>
     </form>
   )
