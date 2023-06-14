@@ -25,7 +25,7 @@ export default function UpdateDepartmentForm() {
     console.log(formData);
   }
 
-  if(Object.keys(formData).length > 0) return <Bug message={"Error"}></Bug>
+  {/*if(Object.keys(formData).length > 0) return <Bug message={"Error"}></Bug>*/}
   
   return (
     <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
