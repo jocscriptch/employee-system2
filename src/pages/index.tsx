@@ -1,7 +1,6 @@
 import { ChevronDoubleRightIcon, ChevronRightIcon, HomeIcon } from '@heroicons/react/24/solid';
 import {BiUserPlus} from "react-icons/bi";
 
-import Prueba from '@/components/DataDepartment/prueba';
 const Home = () => {
 	return (
 		<>
@@ -18,17 +17,6 @@ const Home = () => {
 				</ul>
 			</section>
 
-			{/*
-			<div className="grid lg:grid-cols-3 gap-5 mb-8">
-				<div className={'rounded bg-white h-40 shadow-sm p-4'}>
-					<Prueba/>
-				</div>
-				<div className={'rounded bg-white h-40 shadow-sm p-4'}></div>
-				<div className={'rounded bg-white h-40 shadow-sm p-4'}>hola</div>
-			</div>
-			<div className="grid grid-cols-1 h-96  bg-white shadow-sm rounded"></div>
-		
-			*/}
 		</>
 	);
 };
