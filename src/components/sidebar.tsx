@@ -24,16 +24,16 @@ const MENU_ITEMS = [
   {
     name: "Departamentos",
     icon: BuildingOffice2Icon,
-    path: "/profile",
+    path: "/departamento",
   },
   {
     name: "Salir",
     icon: BiLogOut,
-    path: "/credit",
+    path: "#",
   },
 ];
 
-const ACTIVE_STYLING = "bg-orange-100 text-orange-500";
+const ACTIVE_STYLING = "bg-cyan-100 text-cyan-500";
 const HOVER_STYLING = ACTIVE_STYLING.split(" ")
   .map((style) => `hover:${style}`)
   .join(" ");
