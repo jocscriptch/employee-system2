@@ -3,7 +3,57 @@ import Image from "next/image";
 import SocialMediaSection from "./SocialMediaSection";
 import { Toaster, toast } from "sonner";
 import Link from "next/link";
-export default function SignUpSection() {
+import { useState } from "react";
+
+import firebaseApp from "../firebase";
+import { useRouter } from "next/router";
+
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+const auth = getAuth(firebaseApp);
+
+export const SignUpSection = () => {
+  const [error, setError] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfimPassword] = useState("");
+  const router = useRouter();
+  const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match. Please try again.");
+      return;
+    }
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // ...
+        console.log(user);
+        const promise = () =>
+          new Promise((resolve) => setTimeout(resolve, 2000));
+
+        toast.promise(promise, {
+          loading: "Loading...",
+          success: () => {
+            const userName = user ? user.email : "User";
+            return `${userName} registered user on this page`;
+          },
+          error: "Error",
+        });
+
+        setTimeout(() => {
+          router.push("/empleado");
+        }, 4000); // Redirigir después de 4 segundos
+      })
+      .catch((error) => {
+        toast.error("Invalid access. Please try again.");
+        // ..
+      });
+  };
+  const EqualPass = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+  }
   return (
     <>
       <Toaster closeButton richColors position="bottom-center" />
@@ -22,8 +72,8 @@ export default function SignUpSection() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
-            <div>
+          <form className="space-y-6" onSubmit={handleRegister} method="POST">
+            {/*<div>
               <div className="grid grid-flow-row sm:grid-flow-col gap-3">
                 <div className="sm:col-span-4 justify-center">
                   <label
@@ -63,7 +113,7 @@ export default function SignUpSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div>*/}
 
             <div>
               <label
@@ -80,6 +130,7 @@ export default function SignUpSection() {
                   autoComplete="email"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </div>
@@ -99,6 +150,7 @@ export default function SignUpSection() {
                   autoComplete="password"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
@@ -114,10 +166,12 @@ export default function SignUpSection() {
                 <input
                   id="cPassword"
                   name="cPassword"
-                  type="cPassword"
+                  type="password"
                   autoComplete="cPassword"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={confirmPassword}
+                  onChange={(e)=> setConfimPassword(e.target.value)}
                 />
               </div>
             </div>
@@ -134,7 +188,7 @@ export default function SignUpSection() {
               <button
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 bg-primary text-sm font-semibold leading-6 text-light shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                onClick={() => toast.success("Success to sign up")}
+                //onClick={() => toast.success("Success to sign up")}
               >
                 Sign up
               </button>

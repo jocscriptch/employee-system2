@@ -2,8 +2,12 @@ import { table } from 'console';
 import React from 'react';
 import Image from 'next/image';
 import { BiEdit, BiTrashAlt } from 'react-icons/bi';
+import { doc, setDoc } from "firebase/firestore";
+import firebaseApp from '../firebase';
+
 
 export default function TableDepartments() {
+
     return (
         <div className="table-container">
             <table className="min-w-full table-auto">
