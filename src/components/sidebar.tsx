@@ -29,7 +29,7 @@ const MENU_ITEMS = [
   {
     name: "Salir",
     icon: BiLogOut,
-    path: "#",
+    path: "/SignIn",
   },
 ];
 

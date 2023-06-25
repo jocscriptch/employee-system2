@@ -7,10 +7,6 @@
   --font-family: 'Josefin Sans', sans-serif;
 }
 
-body {
-  @apply bg-gray-100;
-  font-family: var(--font-family);
-}
 .table-container {
   max-width: 100%;
   overflow-x: auto;
