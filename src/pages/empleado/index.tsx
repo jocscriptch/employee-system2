@@ -1,6 +1,6 @@
 import { ChevronDoubleRightIcon,ChevronRightIcon, HomeIcon} from "@heroicons/react/24/solid";
 import {BiAddToQueue} from "react-icons/bi";
-import TableEmployees from "@/components/DataEmployee/TableEmployees";
+import {TableEmployees} from "@/components/DataEmployee/TableEmployees";
 import FormEmployee from "@/components/DataEmployee/Form";
 import {useState} from 'react';
 

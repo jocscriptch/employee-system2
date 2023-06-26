@@ -1,6 +1,6 @@
 import { ChevronDoubleRightIcon,ChevronRightIcon, HomeIcon} from "@heroicons/react/24/solid";
 import {BiAddToQueue} from "react-icons/bi";
-import TableDepartments from "@/components/DataDepartment/TableDepartments";
+import {TableDepartments} from "@/components/DataDepartment/TableDepartments";
 import FormDepartment from "@/components/DataDepartment/Form";
 import {useState} from 'react';
 

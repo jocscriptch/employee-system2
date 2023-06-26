@@ -2,6 +2,8 @@ import { useReducer, useState } from "react";
 import React from "react";
 import { BiPlus } from "react-icons/bi";
 import { Toaster, toast } from "sonner";
+import { BiEdit, BiTrashAlt } from "react-icons/bi";
+import {GrImage} from "react-icons/gr";
 import {
   doc,
   setDoc,
@@ -10,8 +12,7 @@ import {
   collection,
 } from "firebase/firestore";
 import firebaseApp from "../firebase";
-import TableDepartments from "./TableDepartments";
-
+import {TableDepartments} from "./TableDepartments";
 const db = getFirestore(firebaseApp);
 interface State {
   [key: string]: string;
@@ -56,6 +57,7 @@ export default function AddDepartmentForm() {
       console.error("Error adding document: ", e);
     }
   };
+
   return (
     <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleAdd}>
       <div className="input-type">
@@ -77,7 +79,6 @@ export default function AddDepartmentForm() {
           placeholder="Jefe Departamento"
         />
       </div>
-
       <div className="input-type">
         <input
           type="text"
@@ -87,12 +88,6 @@ export default function AddDepartmentForm() {
           placeholder="Cantidad Empleados"
         />
       </div>
-
-      {/*
-      <div className="input-type">
-        <input type="date" name="Fecha" className="border px-5 py-3 focus:outline-none rounded-md" placeholder="Fecha" />
-      </div>
-      */}
       <div className="flex gap-10 items-center">
         <div className="form-check">
           <input
@@ -133,6 +128,5 @@ export default function AddDepartmentForm() {
         </span>
       </button>
     </form>
-    
   );
 }
